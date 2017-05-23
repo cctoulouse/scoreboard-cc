@@ -1,0 +1,14 @@
+apache:
+    image: php:apache
+    volumes:
+    - /home/roussg/scoreboard/toulouse/src:/var/www/html
+    links:
+    - mysql
+    ports:
+    - 8881:80
+    privileged: true
+
+mysql:
+    image: mysql:latest
+    environment:
+         MYSQL_ROOT_PASSWORD: passroot
