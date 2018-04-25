@@ -20,16 +20,17 @@ Ensuite pour remplir la database avec des données de base (un utilisateur d'adm
 ```
 sudo docker cp ./scoreboard.sql "$(docker-compose ps -q mysql)":/db.sql
 sudo docker-compose exec mysql bash
-mysql-u root -ppassroot
+mysql -u root -ppassroot
 ```
 
 Ensuite il faut taper les commandes suivantes dans le shell mysql:
 
 ```
 CREATE DATABASE scoreboard
+USE scoreboard
 source db.sql
 ```
 
 Et voila le scoreboard est setup avec comme user et mot de passe:
    - toulouse@epitech.eu
-   - admintoulousex
+   - admintoulouse
