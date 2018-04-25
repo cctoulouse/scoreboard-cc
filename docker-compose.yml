@@ -1,0 +1,24 @@
+apache:
+    build: ./build/website
+    volumes:
+    - ./src:/var/www/html
+    links:
+    - mysql
+    ports:
+    - 8084:80
+    privileged: true
+
+phpmyadmin:
+    build: ./build/phpmyadmin
+    restart: always
+    links:
+    - mysql
+    ports:
+    - 8085:80
+
+mysql:
+    image: mysql:latest
+    volumes:
+    - ./data:/var/lib/mysql
+    environment:
+         MYSQL_ROOT_PASSWORD: passroot
